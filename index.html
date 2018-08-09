@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Address Book</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <h2>Address Book</h2>
+      <hr>
+      <br>
+      <form class="form-inline" id="search-form">
+        <div class="form-group mb-2">
+          <label for="search" class="mr-4">Search</label>
+          <input type="text" class="form-control" placeholder="Your search" id="search" value="">
+        </div>
+      </form>
+      <table class="table table-striped" id="tbl-address-books">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>E-mail</th>
+            <th><button id="open-modal-form-add" class="btn btn-primary">+</button></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="modal-form-add" class="modal">
+    <div class="modal-content">
+      <div class="modal-wrapper-heading">
+        <div class="modal-title">
+          <h5>Add Address Book</h5>
+        </div>
+      </div>
+        <form>
+          <div class="form-group">
+            <label for="name" class="col-form-label">Name</label>
+            <input required type="text" class="form-control" id="name" placeholder="Your name">
+            <label id="error-name" class="col-form-label error hide">*Name is required</label>
+          </div>
+          <div class="form-group">
+              <label for="address" class="col-form-label">Address</label>
+              <textarea required class="form-control" id="address" placeholder="Your address" ></textarea>
+              <label id="error-address" class="col-form-label error hide">*Address is required</label>
+          </div>
+          <div class="form-group">
+              <label for="phone" class="col-form-label">Phone number</label>
+              <input  required type="text" class="form-control" id="phone-number" placeholder="Your phone number" >
+              <label id="error-phone-number" class="col-form-label error hide">*Phone number is required</label>
+          </div>
+          <div class="form-group">
+              <label for="email" class="col-form-label">E-mail</label>
+              <input required type="email" class="form-control" id="email" placeholder="Your email">
+              <label id="error-email" class="col-form-label error hide">*Email is required</label>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <input type="hidden" value="" id="edited-address-book-id">
+          <button type="button" class="btn btn-secondary" id="btn-close-modal">Close</button>
+          <button type="button" id="btn-add" class="btn btn-primary">Add</button>
+          <button type="button" id="btn-edit" class="hide btn btn-primary">Save</button>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div id="modal-delete-confirmation" class="modal">
+    <div class="modal-content">
+      <div class="modal-wrapper-heading">
+        <div class="modal-title">
+          <h5>Delete confirmation</h5>
+        </div>
+      </div>
+      <div class="modal-wrapper-body">
+        <p>Are you sure want to delete this address book ?</p>
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" value="" id="deleted-address-book-id">
+        <button type="button" class="btn btn-secondary" id="btn-close-modal-delete-confirmation">Close</button>
+        <button type="button" id="btn-delete-address-book" class="btn btn-primary">Delete</button>
+      </div>
+    </div>
+  </div>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
