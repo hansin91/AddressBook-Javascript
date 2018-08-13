@@ -19,6 +19,9 @@ const inputSearch = document.getElementById('search');
 const table = document.getElementById('tbl-address-books');
 const tblBody = table.querySelector('tbody');
 
+// button
+const openModalBtn = document.getElementById('open-modal-form-add');
+
 let paramSearch;
 
 let name;
@@ -165,8 +168,7 @@ const setAddressBookInputValue = function(id) {
 
 const editAddressBook = function(element) {
 	openModal(modalFormAdd);
-	let title = (document.getElementById('modal-form-add').querySelector('.modal-title').querySelector('h5').innerHTML =
-		'Edit Address Book');
+	let title = (modalFormAdd.querySelector('.modal-title').querySelector('h5').innerHTML = 'Edit Address Book');
 	document
 		.getElementById('modal-form-add')
 		.querySelector('.modal-footer')
@@ -201,27 +203,17 @@ const searchAddress = function(param) {
 
 const setAddressBook = function(id) {
 	let index = arrayAddressBook.findIndex((addressBook) => addressBook.id == id);
-	arrayAddressBook[index].name = document.getElementById('name').value;
-	arrayAddressBook[index].address = document.getElementById('address').value;
-	arrayAddressBook[index].phone = document.getElementById('phone-number').value;
-	arrayAddressBook[index].email = document.getElementById('email').value;
+	arrayAddressBook[index].name = inputName.value;
+	arrayAddressBook[index].address = inputAddress.value;
+	arrayAddressBook[index].phone = inputPhone.value;
+	arrayAddressBook[index].email = inputEmail.value;
 };
 
-document.getElementById('open-modal-form-add').onclick = function() {
+openModalBtn.onclick = function() {
 	openModal(modalFormAdd);
-	document.getElementById('modal-form-add').querySelector('.modal-title').querySelector('h5').innerHTML =
-		'Add Address Book';
-	document
-		.getElementById('modal-form-add')
-		.querySelector('.modal-footer')
-		.querySelector('#btn-edit')
-		.classList.add('hide');
-
-	document
-		.getElementById('modal-form-add')
-		.querySelector('.modal-footer')
-		.querySelector('#btn-add')
-		.classList.remove('hide');
+	modalFormAdd.querySelector('.modal-title').querySelector('h5').innerHTML = 'Add Address Book';
+	modalFormAdd.querySelector('.modal-footer').querySelector('#btn-edit').classList.add('hide');
+	modalFormAdd.querySelector('.modal-footer').querySelector('#btn-add').classList.remove('hide');
 	resetForm();
 };
 
